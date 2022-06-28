@@ -26,7 +26,7 @@
 <div th:if="${verify}" >
     <script>
         swal({
-            title: 'Xác thực tài khoản thành công!',
+            title: 'Account verification successful!',
             /* text: 'Redirecting...', */
             icon: 'success',
             timer: 3000,
@@ -70,8 +70,8 @@
             <div class="row">
                 <!--header-->
                 <div class="col-12 d-flex justify-content-between align-items-center pb-2 bg-transparent pt-4">
-                    <h1 class="header text-uppercase" style="font-weight: 400;">SẢN PHẨM HOT</h1>
-                    <a href="/public/product/all" class="btn btn-warning btn-sm text-white">Xem tất cả</a>
+                    <h1 class="header text-uppercase" style="font-weight: 400;">PRODUCT HOT</h1>
+                    <a href="/public/product/all" class="btn btn-warning btn-sm text-white">View all</a>
                 </div>
             </div>
             <div class="khoisanpham" style="padding-bottom: 2rem">
@@ -98,7 +98,7 @@
                                     <li class="active"><i class="fa fa-star"></i></li>
                                     <li class="active"><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
-                                    <li><span class="text-muted" th:text="${product.viewCount} + ' lượt xem'"></span></li>
+                                    <li><span class="text-muted" th:text="${product.viewCount} + ' view'"></span></li>
                                 </ul>
                             </div>
                         </div>
@@ -116,8 +116,8 @@
             <div class="row">
                 <!--header -->
                 <div class="col-12 d-flex justify-content-between align-items-center pb-2 bg-light">
-                    <h2 class="header text-uppercase" style="font-weight: 400;">SẢN PHẨM KHUYẾN MÃI</h2>
-                    <a href="/public/product/all" class="btn btn-warning btn-sm text-white">Xem tất cả</a>
+                    <h2 class="header text-uppercase" style="font-weight: 400;">PROMOTION PRODUCTS</h2>
+                    <a href="/public/product/all" class="btn btn-warning btn-sm text-white">View all</a>
                 </div>
             </div>
             <div class="khoisanpham">
@@ -143,7 +143,7 @@
                                         <li class="active"><i class="fa fa-star"></i></li>
                                         <li class="active"><i class="fa fa-star"></i></li>
                                         <li><i class="fa fa-star"></i></li>
-                                        <li><span class="text-muted" th:text="${product.viewCount} + ' lượt xem'"></span></li>
+                                        <li><span class="text-muted" th:text="${product.viewCount} + ' view'"></span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -163,8 +163,8 @@
             <div class="row">
                 <!--header-->
                 <div class="col-12 d-flex justify-content-between align-items-center pb-2 bg-transparent pt-4">
-                    <h2 class="header text-uppercase" style="font-weight: 400;">SẢN PHẨM MỚI</h2>
-                    <a href="/public/product/all" class="btn btn-warning btn-sm text-white">Xem tất cả</a>
+                    <h2 class="header text-uppercase" style="font-weight: 400;">NEW PRODUCT</h2>
+                    <a href="/public/product/all" class="btn btn-warning btn-sm text-white">View all</a>
                 </div>
                 <!-- 1 san pham -->
                 <th:block th:each="product,index : ${productTopCreates}">
@@ -178,7 +178,7 @@
                                 <div class="card-body noidungsp mt-3">
                                     <h3 class="card-title ten" th:text="${product.name}"></h3>
                                     <small class="thoigian text-muted" th:text="${product.createdAt}"></small>
-                                    <div><a class="detail" href="#">Xem chi tiết</a></div>
+                                    <div><a class="detail" href="#">View detail</a></div>
                                 </div>
                             </a>
                         </div>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website bán hàng</title>
+  <title>Website </title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -43,7 +43,7 @@
       var email = $('#email1').val();
       if (password == ''  || email == '' ){
         swal({
-          title: 'Cần điền đầy đủ thông tin!',
+          title: 'Need to fill out the information completely!',
           /* text: 'Redirecting...', */
           icon: 'error',
           timer: 3000,
@@ -65,7 +65,7 @@
                   success: function (data) {
                     if(data == "false_user"){
                       swal({
-                        title: 'Thông tin tài khoản không chính xác!',
+                        title: 'Incorrect account information!',
                         /* text: 'Redirecting...', */
                         icon: 'error',
                         timer: 3000,
@@ -74,7 +74,7 @@
                       })
                     }else if(data == "true"){
                       swal({
-                        title: 'Đăng nhập thành công !',
+                        title: 'Login successfully !',
                         /* text: 'Redirecting...', */
                         icon: 'success',
                         timer: 5000,
@@ -86,7 +86,7 @@
                       }, 3000);
                     } else {
                       swal({
-                        title: 'Tài khoản chưa xác thực vui lòng check mail!',
+                        title: 'Unverified account, please check your email!',
                         /* text: 'Redirecting...', */
                         icon: 'error',
                         timer: 3000,
@@ -111,7 +111,7 @@
       var phoneNumber = $('#phoneNumber').val();
       if (password == '' || rePassword == '' || email == '' || fullName == '' || phoneNumber == ''){
         swal({
-          title: 'Cần điền đầy đủ thông tin!',
+          title: 'Need to fill out the information completely!',
           /* text: 'Redirecting...', */
           icon: 'error',
           timer: 3000,
@@ -121,7 +121,7 @@
       } else {
         if (password !== rePassword){
           swal({
-            title: 'Hai mật khẩu không trùng khớp!',
+            title: 'Two passwords do not match!',
             /* text: 'Redirecting...', */
             icon: 'error',
             timer: 3000,
@@ -145,7 +145,7 @@
                     success: function (data) {
                       if(data == "exist"){
                         swal({
-                          title: 'Email đã tồn tại!',
+                          title: 'Email already exists!',
                           /* text: 'Redirecting...', */
                           icon: 'error',
                           timer: 3000,
@@ -154,7 +154,7 @@
                         })
                       }else if(data == "true"){
                         swal({
-                          title: 'Đăng kí thành công!',
+                          title: 'Register successfully!',
                           /* text: 'Redirecting...', */
                           icon: 'success',
                           timer: 5000,
@@ -212,7 +212,8 @@
         <div class="categoryheader">
           <div class="noidungheader text-white">
             <i class="fa fa-bars"></i>
-            <span class="text-uppercase font-weight-bold ml-1">Danh mục sản phẩm</span>
+            <span class="text-uppercase font-weight-bold ml-1">
+Product portfolio</span>
           </div>
           <!-- CATEGORIES -->
           <div class="categorycontent">
@@ -240,7 +241,8 @@
             <span>Hotline:<b>1900 1999</b> </span>
           </div>
           <i class="fas fa-comments-dollar"></i>
-          <a href="#">Hỗ trợ trực tuyến </a>
+          <a href="#">
+            Online support</a>
         </div>
       </div>
     </div>
@@ -251,8 +253,8 @@
 <section class="breadcrumbbar">
   <div class="container">
     <ol class="breadcrumb mb-0 p-0 bg-transparent">
-      <li class="breadcrumb-item"><a href="/public/home">Trang chủ</a></li>
-      <li class="breadcrumb-item active"><a href="/public/product/all">Tất cả sản phẩm</a></li>
+      <li class="breadcrumb-item"><a href="/public/home">Home</a></li>
+      <li class="breadcrumb-item active"><a href="/public/product/all">View all</a></li>
     </ol>
   </div>
 </section>
@@ -287,7 +289,7 @@
                         <li class="active"><i class="fa fa-star"></i></li>
                         <li class="active"><i class="fa fa-star"></i></li>
                         <li><i class="fa fa-star"></i></li>
-                        <span class="text-muted" th:text="${product.viewCount} + ' lượt xem'">0 nhận xét</span>
+                        <span class="text-muted" th:text="${product.viewCount} + ' view'">0 review</span>
                       </ul>
                     </div>
                   </div>

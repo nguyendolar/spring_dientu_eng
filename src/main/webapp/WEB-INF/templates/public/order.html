@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="li">
 
 <head >
-  <title>Website bán hàng</title>
+  <title>Website</title>
   <meta name="description"
         content="Mua sách online hay, giá tốt nhất, combo sách hot bán chạy, giảm giá cực khủng cùng với những ưu đãi như miễn phí giao hàng, quà tặng miễn phí, đổi trả nhanh chóng. Đa dạng sản phẩm, đáp ứng mọi nhu cầu.">
   <meta name="keywords" content="nhà sách online, mua sách hay, sách hot, sách bán chạy, sách giảm giá nhiều">
@@ -69,7 +69,7 @@
       var email = $('#email1').val();
       if (password == ''  || email == '' ){
         swal({
-          title: 'Cần điền đầy đủ thông tin!',
+          title: 'You need to fill in all the information!',
           /* text: 'Redirecting...', */
           icon: 'error',
           timer: 3000,
@@ -91,7 +91,7 @@
                   success: function (data) {
                     if(data == "false_user"){
                       swal({
-                        title: 'Thông tin tài khoản không chính xác!',
+                        title: 'Username or password incorrect!',
                         /* text: 'Redirecting...', */
                         icon: 'error',
                         timer: 3000,
@@ -100,19 +100,19 @@
                       })
                     }else if(data == "true"){
                       swal({
-                        title: 'Đăng nhập thành công !',
+                        title: 'Login sucessfully!',
                         /* text: 'Redirecting...', */
                         icon: 'success',
-                        timer: 3000,
+                        timer: 5000,
                         buttons: true,
                         type: 'success'
                       })
                       setInterval(function(){
                         location.reload()
-                      }, 2000);
+                      }, 3000);
                     } else {
                       swal({
-                        title: 'Tài khoản chưa xác thực vui lòng check mail!',
+                        title: 'Unverified account please check mail!',
                         /* text: 'Redirecting...', */
                         icon: 'error',
                         timer: 3000,
@@ -137,7 +137,7 @@
       var phoneNumber = $('#phoneNumber').val();
       if (password == '' || rePassword == '' || email == '' || fullName == '' || phoneNumber == ''){
         swal({
-          title: 'Cần điền đầy đủ thông tin!',
+          title: 'You need to fill in all the information!',
           /* text: 'Redirecting...', */
           icon: 'error',
           timer: 3000,
@@ -147,7 +147,7 @@
       } else {
         if (password !== rePassword){
           swal({
-            title: 'Hai mật khẩu không trùng khớp!',
+            title: 'Two passwords do not match!',
             /* text: 'Redirecting...', */
             icon: 'error',
             timer: 3000,
@@ -171,7 +171,7 @@
                     success: function (data) {
                       if(data == "exist"){
                         swal({
-                          title: 'Email đã tồn tại!',
+                          title: "Email already exists!",
                           /* text: 'Redirecting...', */
                           icon: 'error',
                           timer: 3000,
@@ -180,7 +180,7 @@
                         })
                       }else if(data == "true"){
                         swal({
-                          title: 'Đăng kí thành công!',
+                          title: 'Register successfully!',
                           /* text: 'Redirecting...', */
                           icon: 'success',
                           timer: 5000,
@@ -231,7 +231,7 @@
 <div th:if="${user_login}" >
   <script>
     swal({
-      title: 'Bạn cần phải đăng nhập',
+      title: 'You need login',
       /* text: 'Redirecting...', */
       icon: 'error',
       timer: 3000,
@@ -243,7 +243,7 @@
 <div th:if="${success}" >
   <script>
     swal({
-      title: 'Thành công',
+      title: 'Successfully',
       /* text: 'Redirecting...', */
       icon: 'success',
       timer: 3000,
@@ -260,7 +260,8 @@
         <div class="categoryheader">
           <div class="noidungheader text-white">
             <i class="fa fa-bars"></i>
-            <span class="text-uppercase font-weight-bold ml-1">Danh mục sản phẩm</span>
+            <span class="text-uppercase font-weight-bold ml-1">
+Product portfolio</span>
           </div>
           <!-- CATEGORIES -->
           <div class="categorycontent">
@@ -288,7 +289,8 @@
             <span>Hotline:<b>1900 1999</b> </span>
           </div>
           <i class="fas fa-comments-dollar"></i>
-          <a href="#">Hỗ trợ trực tuyến </a>
+          <a href="#">
+            Online support </a>
         </div>
       </div>
     </div>
@@ -299,8 +301,8 @@
 <section class="breadcrumbbar">
   <div class="container">
     <ol class="breadcrumb mb-0 p-0 bg-transparent">
-      <li class="breadcrumb-item"><a href="/public/home">Trang chủ</a></li>
-      <li class="breadcrumb-item active"><a href="/public/user/order" >Lịch sử đặt hàng</a></li>
+      <li class="breadcrumb-item"><a href="/public/home">Home</a></li>
+      <li class="breadcrumb-item active"><a href="/public/user/order" >Order history</a></li>
     </ol>
   </div>
 </section>
@@ -309,12 +311,14 @@
     <table class="table" style="margin-bottom: 100px">
       <thead class="thead-light">
       <tr>
-        <th scope="col">Mã đơn hàng</th>
-        <th scope="col">Ngày đặt hàng</th>
-        <th scope="col">Tổng tiền</th>
-        <th scope="col">Ghi chú</th>
-        <th scope="col">Trạng thái</th>
-        <th scope="col">Thao tác</th>
+        <th scope="col">
+          Code orders</th>
+        <th scope="col">
+          Order date</th>
+        <th scope="col">Total</th>
+        <th scope="col">Note</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
       </tr>
       </thead>
       <tbody>
@@ -330,10 +334,10 @@
           <td th:if="${order.status == 3}">Đã giao hàng</td>
           <td>
             <a style="width: 100px" th:href="'/public/user/order/detail/'+ ${order.id}" class="btn btn-warning">
-              Chi tiết
+              Detail
             </a>
             <a th:if="${order.status == 1}" style="width: 100px" th:href="'order/cancel/'+ ${order.id}" class="btn btn-danger">
-              Hủy đơn
+             Cancel
             </a>
           </td>
         </tr>
