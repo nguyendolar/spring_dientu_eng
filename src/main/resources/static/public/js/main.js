@@ -337,7 +337,7 @@ $(function () {
                     }else{
                         div.innerHTML = data;
                         swal({
-                            title: 'Thêm giỏ hàng thành công',
+                            title: 'Add cart successfully',
                             /* text: 'Redirecting...', */
                             icon: 'success',
                             timer: 3000,
