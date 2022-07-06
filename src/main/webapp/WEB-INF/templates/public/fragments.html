@@ -197,7 +197,7 @@
 <nav th:fragment="html_nav" class="navbar navbar-expand-md bg-white navbar-light">
   <div class="container">
     <!-- logo  -->
-    <a class="navbar-brand" href="/public/home" style="color: #CF111A;"><b>Fashion</b>_Store</a>
+    <a class="navbar-brand" href="/public/home" style="color: #CF111A;"><b>Spring</b>_Store</a>
 
     <!-- navbar-toggler  -->
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
@@ -220,7 +220,7 @@
 
       <!-- ô đăng nhập đăng ký giỏ hàng trên header  -->
       <ul class="navbar-nav mb-1 ml-auto">
-        <li class="nav-item giohang">
+        <li class="nav-item giohang mt-1">
           <a th:unless="${session.order}" href="/public/cart/index" class="btn btn-secondary rounded-circle">
             <i class="fa fa-shopping-cart"></i>
             <div class="cart-amount" id="numberCart">0</div>
@@ -232,7 +232,7 @@
           <a class="nav-link text-dark giohang text-uppercase" href="/public/cart/index"
              style="display:inline-block">Cart</a>
         </li>
-        <div class="dropdown">
+        <div class="dropdown mb-2">
           <li  th:unless="${session.user}" type="button" class="btn dropdown" data-toggle="dropdown">
             <a href="#" class="btn btn-secondary rounded-circle">
               <i class="fa fa-user"></i>
@@ -253,6 +253,7 @@
           </div>
 
           <div th:if="${session.user}" class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item nutdangky text-center mb-2" href="/public/user/profile" >Profile</a>
             <a class="dropdown-item nutdangky text-center mb-2" href="/public/user/order" >Order history</a>
             <a class="dropdown-item nutdangky text-center mb-2" href="/public/user/logout" >Logout</a>
 
@@ -297,7 +298,7 @@
           </div>
 
           <div class="form-label-group">
-            <input type="email" class="form-control" placeholder="Enter address" name="email" id="email"
+            <input type="email" class="form-control" placeholder="Enter email" name="email" id="email"
                    required>
           </div>
           <div  class="form-label-group">
@@ -314,7 +315,7 @@
           <hr class="mt-3 mb-2">
 
           <div class="custom-control custom-checkbox">
-            <p class="text-center">By registering, you agree to Fashion_Store </p>
+            <p class="text-center">By registering, you agree to Spring_Store </p>
             <a href="#" class="text-decoration-none text-center" style="color: #F5A623">Translation Terms
               Service & Privacy Policy</a>
           </div>
@@ -385,7 +386,7 @@
         <div class="categoryheader">
           <div class="noidungheader text-white">
             <i class="fa fa-bars"></i>
-            <span class="text-uppercase font-weight-bold ml-1">Product portfolio</span>
+            <span class="text-uppercase font-weight-bold ml-1">Category Product</span>
           </div>
         </div>
       </div>
@@ -437,11 +438,11 @@
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <a href="#"><img src="https://inanaz.com.vn/wp-content/uploads/2020/02/mau-banner-quang-cao-dep-2.jpg" class="img-fluid"
+              <a href="#"><img src="https://file.hstatic.net/1000233206/file/gaming_gears_f33a32ce612f41a588290a8e02f32439_1024x1024.jpg" class="img-fluid"
                                style="height: 386px;" width="900px" alt="First slide"></a>
             </div>
             <div class="carousel-item">
-              <a href="#"><img src="https://inanaz.com.vn/wp-content/uploads/2020/02/mau-banner-quang-cao-dep-3.jpg"  class="img-fluid"
+              <a href="#"><img src="https://www.phucanh.vn/media/news/0907_Postface-TuanvangGaminggear.jpg"  class="img-fluid"
                                style="height: 386px;" width="900px" alt="Second slide"></a>
             </div>
 
@@ -1064,7 +1065,7 @@
               <div class="card-body noidungsp mt-3">
                 <h3 class="card-title ten">Từng bước chân nở hoa: Khi câu kinh bước tới</h3>
                 <small class="thoigian text-muted">03/04/2020</small>
-                <div><a class="detail" href="#">Xem chi tiết</a></div>
+                <div><a class="detail" href="#">View details</a></div>
               </div>
             </a>
           </div>
@@ -1078,7 +1079,7 @@
               <div class="card-body noidungsp mt-3">
                 <h3 class="card-title ten">Cảm ơn vì đã được thương</h3>
                 <small class="thoigian text-muted">31/03/2020</small>
-                <div><a class="detail" href="#">Xem chi tiết</a></div>
+                <div><a class="detail" href="#">View details</a></div>
               </div>
             </a>
           </div>
@@ -1092,7 +1093,7 @@
               <div class="card-body noidungsp mt-3">
                 <h3 class="card-title ten">Hào quang của vua Gia Long trong mắt Michel Gaultier</h3>
                 <small class="thoigian text-muted">21/03/2020</small>
-                <div><a class="detail" href="#">Xem chi tiết</a></div>
+                <div><a class="detail" href="#">View details</a></div>
               </div>
             </a>
           </div>
@@ -1107,7 +1108,7 @@
               <div class="card-body noidungsp mt-3">
                 <h3 class="card-title ten">"Suối nguồn” và cái tôi hiện sinh trong từng cá thể</h3>
                 <small class="thoigian text-muted">16/03/2020</small>
-                <div><a class="detail" href="#">Xem chi tiết</a></div>
+                <div><a class="detail" href="#">View details</a></div>
               </div>
             </a>
           </div>
@@ -1190,9 +1191,9 @@
     <div class="row">
       <div class="col-md-3 col-xs-6">
         <div class="gioithieu">
-          <h3 class="header text-uppercase font-weight-bold">About Fashion_Store</h3>
+          <h3 class="header text-uppercase font-weight-bold">About Spring_Store</h3>
           <a href="#">
-            Introduce about Fashion_Store</a>
+            Introduce about Spring_Store</a>
           <a href="#">
             Recruit</a>
           <div class="fb-like" data-href="https://www.facebook.com/DealBook-110745443947730/"

@@ -17,46 +17,46 @@
   <div id="layoutSidenav_content">
     <main>
       <div class="container-fluid px-4">
-        <h1 class="mt-4">Chi tiết đơn hàng</h1>
+        <h1 class="mt-4">Order details</h1>
         <div class="card mb-4">
           <div class="card-header">
             <div class="row">
               <div class="col-6">
                 <div class="">
-                  <label  class="col-form-label">Mã đơn hàng:</label>
+                  <label  class="col-form-label">Code orders:</label>
                   <input type="text" name="name" th:value="${order.id}" readonly class="form-control" >
                 </div>
                 <div class="">
-                  <label  class="col-form-label">Ngày đặt hàng:</label>
+                  <label  class="col-form-label">Order date:</label>
                   <input type="text" name="price" th:value="${order.orderDate}" readonly class="form-control" >
                 </div>
                 <div class="">
-                  <label  class="col-form-label">Tổng tiền:</label>
+                  <label  class="col-form-label">Total amount:</label>
                   <input type="text" name="quantity" th:value="${#numbers.formatCurrency(order.amount)}" readonly class="form-control" >
                 </div>
                 <div class="">
-                  <label  class="col-form-label">Trạng thái:</label>
-                  <input type="text" name="quantity" th:if="${order.status == 0}" value="Đã hủy" readonly class="form-control" >
-                  <input type="text" name="quantity" th:if="${order.status == 1}" value="Đang xử lý" readonly class="form-control" >
-                  <input type="text" name="quantity" th:if="${order.status == 2}" value="Đang giao hàng" readonly class="form-control" >
-                  <input type="text" name="quantity" th:if="${order.status == 3}" value="Đã giao hàng" readonly class="form-control" >
+                  <label  class="col-form-label">Status:</label>
+                  <input type="text" name="quantity" th:if="${order.status == 0}" value="Cancelled" readonly class="form-control" >
+                  <input type="text" name="quantity" th:if="${order.status == 1}" value="Processing" readonly class="form-control" >
+                  <input type="text" name="quantity" th:if="${order.status == 2}" value="Delivery in progress" readonly class="form-control" >
+                  <input type="text" name="quantity" th:if="${order.status == 3}" value="Delivered" readonly class="form-control" >
                 </div>
               </div>
               <div class="col-6">
                 <div class="">
-                  <label  class="col-form-label">Khách hàng:</label>
+                  <label  class="col-form-label">Customer:</label>
                   <input type="text" name="name" th:value="${order.user.fullName}" class="form-control" readonly>
                 </div>
                 <div class="">
-                  <label  class="col-form-label">Số điện thoại:</label>
+                  <label  class="col-form-label">Phone Number:</label>
                   <input type="text" name="price" th:value="${order.phoneNumber}" class="form-control" readonly>
                 </div>
                 <div class="">
-                  <label  class="col-form-label">Địa chỉ:</label>
+                  <label  class="col-form-label">Address:</label>
                   <input type="text" name="quantity" th:value="${order.address}" class="form-control" readonly>
                 </div>
                 <div class="">
-                  <label  class="col-form-label">Ghi chú:</label>
+                  <label  class="col-form-label">Note:</label>
                   <input type="text" name="quantity" th:value="${order.description}" class="form-control" readonly>
                 </div>
               </div>
@@ -66,20 +66,17 @@
             <table id="datatablesSimple">
               <thead>
               <tr style="background-color: gray !important;">
-                <th>STT</th>
-                <th>Ảnh</th>
-                <th>Sản phẩm</th>
-                <th>Giá</th>
-                <th>Số lượng</th>
-                <th>Thành tiền</th>
+                <th>NO</th>
+                <th>Image</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total Amount</th>
               </tr>
               </thead>
               <tfoot>
               <tr>
-                <th>Full Name</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>UserName</th>
+
               </tr>
               </tfoot>
               <tbody>

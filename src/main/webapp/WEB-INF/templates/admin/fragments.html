@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Quản trị</title>
+    <title>Administrators</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link th:href="@{/admin1/assets/css/styles.css}" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
@@ -23,7 +23,7 @@
 <body class="sb-nav-fixed">
     <nav th:fragment="html_nav" class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="/admin/home">QUẢN TRỊ</a>
+    <a class="navbar-brand ps-3" href="/admin/home">Administrators</a>
     <!-- Sidebar Toggle-->
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
             class="fas fa-bars"></i></button>
@@ -51,39 +51,35 @@
 
                     <a class="nav-link" href="/admin/home">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                        Bảng điều khiển
+                        Dashboard
                     </a>
                     <a class="nav-link" href="/admin/product">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                        Sản phẩm
+                        Product
                     </a>
                     <a class="nav-link" href="/admin/category">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                        Danh mục sản phẩm
-                    </a>
-                    <a class="nav-link" href="/admin/employee">
-                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                        Tài khoản quản trị
+                        Product Category
                     </a>
                     <a class="nav-link" href="/admin/customer">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                        Khách hàng
+                        Customer
                     </a>
                     <a class="nav-link" href="/admin/order">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                        Đơn hàng
+                        Order
                     </a>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                        data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                         <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                        Thống kê
+                        Statistical
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                          data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="/admin/seller">Bán chạy nhất </a>
-                            <a class="nav-link" href="/admin/notsell">Không bán chạy</a>
+                            <a class="nav-link" href="/admin/seller">Bestseller </a>
+                            <a class="nav-link" href="/admin/notsell">Not selling well</a>
                         </nav>
                     </div>
                 </div>
@@ -97,44 +93,7 @@
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item active"></li>
                 </ol>
-                <div class="row">
-                    <div class="col-xl-3 col-md-6">
-                        <div class="card bg-primary text-white mb-4">
-                            <div class="card-body">5 Phim đang chiếu</div>
-                            <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">View Details</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="card bg-warning text-white mb-4">
-                            <div class="card-body">7 Phim sắp chiếu</div>
-                            <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">View Details</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="card bg-success text-white mb-4">
-                            <div class="card-body">12 Khách hàng</div>
-                            <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">View Details</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6">
-                        <div class="card bg-danger text-white mb-4">
-                            <div class="card-body">5 Booking chưa xử lý</div>
-                            <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">View Details</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
 
         </main>
         <footer th:fragment="footer" class="py-4 bg-light mt-auto">

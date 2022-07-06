@@ -101,6 +101,40 @@ public class AuthenticationController {
         }
     }
 
+    @PostMapping("/changePassword")
+    public ModelAndView changePassword(HttpServletRequest request,RedirectAttributes rd){
+        ModelAndView mv = new ModelAndView("redirect:profile");
+        String oldpassword = request.getParameter("password");
+        String passwordMd5 = EncrytedPasswordUtils.md5(oldpassword);
+        String newpassword = request.getParameter("newpassword");
+        String newpass = EncrytedPasswordUtils.md5(newpassword);
+        User user = middleware.middlewareUser(request);
+        if(user.getPassword().equals(passwordMd5)){
+            user.setPassword(newpass);
+            userService.save(user);
+            rd.addFlashAttribute(CommonConstants.SUCCESS, "SUCCESS");
+        }
+        else{
+            rd.addFlashAttribute(CommonConstants.FAIL, "FAIL");
+        }
+        return mv;
+    }
+
+    @PostMapping("/updateProfile")
+    public ModelAndView updateProfile(HttpServletRequest request,RedirectAttributes rd){
+        ModelAndView mv = new ModelAndView("redirect:profile");
+        String fullName = request.getParameter("fullName");
+        String email = request.getParameter("email");
+        String phoneNumber = request.getParameter("phoneNumber");
+        User user = middleware.middlewareUser(request);
+        user.setFullName(fullName);
+        user.setEmail(email);
+        user.setPhoneNumber(phoneNumber);
+        userService.save(user);
+        rd.addFlashAttribute(CommonConstants.SUCCESS, "SUCCESS");
+        return mv;
+    }
+
     @GetMapping("/verify/{email}")
     public ModelAndView verify(@PathVariable String email, RedirectAttributes rd ){
         User user = userService.findUserByEmail(email);
@@ -127,6 +161,16 @@ public class AuthenticationController {
         ModelAndView mv = new ModelAndView("public/order");
         mv.addObject("categories",categoryService.getAll());
         mv.addObject("list",list);
+        return mv;
+    }
+
+    @GetMapping({ "/profile"})
+    public ModelAndView profile(HttpServletRequest request)
+    {
+        User user = middleware.middlewareUser(request);
+        ModelAndView mv = new ModelAndView("public/profile");
+        mv.addObject("categories",categoryService.getAll());
+        mv.addObject("user",user);
         return mv;
     }
 

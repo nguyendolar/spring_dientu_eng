@@ -22,36 +22,36 @@
       <div class="row">
         <div class="col-xl-3 col-md-6">
           <div class="card bg-primary text-white mb-4">
-            <div class="card-body">Số lượng sản phẩm: <strong th:text="${countC}"></strong> </div>
+            <div class="card-body">Number of products: <strong th:text="${countC}"></strong> </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-              <a class="small text-white stretched-link" href="/admin/product">Xem chi tiết</a>
+              <a class="small text-white stretched-link" href="/admin/product">View details</a>
               <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
           </div>
         </div>
         <div class="col-xl-3 col-md-6">
           <div class="card bg-warning text-white mb-4">
-            <div class="card-body">Số lượng khách hàng : <strong th:text="${countU}"></strong> </div>
+            <div class="card-body">Number of customers : <strong th:text="${countU}"></strong> </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-              <a class="small text-white stretched-link" href="/admin/customer">Xem chi tiết</a>
+              <a class="small text-white stretched-link" href="/admin/customer">View details</a>
               <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
           </div>
         </div>
         <div class="col-xl-3 col-md-6">
           <div class="card bg-success text-white mb-4">
-            <div class="card-body">Số lượng đơn hàng : <strong th:text="${countB}"></strong></div>
+            <div class="card-body">Number of orders : <strong th:text="${countB}"></strong></div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-              <a class="small text-white stretched-link" href="/admin/order">Xem chi tiết</a>
+              <a class="small text-white stretched-link" href="/admin/order">View details</a>
               <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
           </div>
         </div>
         <div class="col-xl-3 col-md-6">
           <div class="card bg-danger text-white mb-4">
-            <div class="card-body">Doanh thu : <strong th:text="${#numbers.formatCurrency(sum)}"></strong> </div>
+            <div class="card-body">Turnover : <strong th:text="${#numbers.formatCurrency(sum)}"></strong> </div>
             <div class="card-footer d-flex align-items-center justify-content-between">
-              <a class="small text-white stretched-link" href="/admin/order">Xem chi tiết</a>
+              <a class="small text-white stretched-link" href="/admin/order">View details</a>
               <div class="small text-white"><i class="fas fa-angle-right"></i></div>
             </div>
           </div>
@@ -62,7 +62,7 @@
       <div class="card mb-4">
         <div class="card-header">
           <i class="fas fa-chart-bar me-1"></i>
-          Doanh thu mỗi tháng
+          Revenue per month
         </div>
         <div class="card-body"><canvas id="myBarChart" width="100%" height="50"></canvas></div>
 

@@ -17,15 +17,15 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">Danh sách tài khoản quản trị</h1>
+                <h1 class="mt-4">List of administration accounts</h1>
                 <div class="card mb-4">
                     <div class="card-header">
                         <div th:if="${msg == 'success'}" class="alert alert-success">
-                            <strong>Thành công!</strong>
+                            <strong>Success!</strong>
                         </div>
                         <button type="button" class="btn btn-success" data-bs-toggle="modal"
                                 data-bs-target="#exampleModalAdd">
-                            Thêm mới
+                            Create
                         </button>
                         <!-- Modal Add-->
                         <div class="modal fade" id="exampleModalAdd" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -33,7 +33,7 @@
                             <div class="modal-dialog ">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabelll">Thêm mới</h5>
+                                        <h5 class="modal-title" id="exampleModalLabelll">Create</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                     </div>

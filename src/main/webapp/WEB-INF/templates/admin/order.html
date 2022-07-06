@@ -17,32 +17,29 @@
   <div id="layoutSidenav_content">
     <main>
       <div class="container-fluid px-4">
-        <h1 class="mt-4">Danh sách đơn hàng</h1>
+        <h1 class="mt-4">Order List</h1>
         <div class="card mb-4">
           <div class="card-header">
             <div th:if="${msg == 'success'}" class="alert alert-success">
-              <strong>Thành công!</strong>
+              <strong>Successful!</strong>
             </div>
           </div>
           <div class="card-body">
             <table id="datatablesSimple">
               <thead>
               <tr style="background-color: gray !important;">
-                <th>Mã ĐH</th>
-                <th>Khách hàng</th>
-                <th>Số điện thoại</th>
-                <th>Tổng tiền</th>
-                <th>Ngày đặt hàng</th>
-                <th>Trạng thái</th>
-                <th>Hành động</th>
+                <th>Code orders</th>
+                <th>Customer</th>
+                <th>Phone Number</th>
+                <th>Total Money</th>
+                <th>Date order</th>
+                <th>Status</th>
+                <th>Action</th>
               </tr>
               </thead>
               <tfoot>
               <tr>
-                <th>Full Name</th>
-                <th>Email</th>
-                <th>Phone Number</th>
-                <th>UserName</th>
+
               </tr>
               </tfoot>
               <tbody>
@@ -53,17 +50,17 @@
                   <td th:text="${category.phoneNumber}"></td>
                   <td th:text="${#numbers.formatCurrency(category.amount)}"></td>
                   <td th:text="${category.orderDate}"></td>
-                  <td th:if="${category.status == 0}">Đã hủy</td>
-                  <td th:if="${category.status == 1}">Đang xử lý</td>
-                  <td th:if="${category.status == 2}">Đang giao hàng</td>
-                  <td th:if="${category.status == 3}">Đã giao hàng</td>
+                  <td th:if="${category.status == 0}">Cancelled</td>
+                  <td th:if="${category.status == 1}">Processing</td>
+                  <td th:if="${category.status == 2}">Delivery in progress</td>
+                  <td th:if="${category.status == 3}">Delivered</td>
                   <td>
                     <button th:if="${category.status != 0}" style="width: 100px" type="button" class="btn btn-primary" data-bs-toggle="modal"
                             th:data-bs-target="'#exampleModal'+${category.id}">
-                      Cập nhập
+                      Update
                     </button>
                     <a style="width: 100px" th:href="'order/detail/'+ ${category.id}" class="btn btn-warning">
-                      Chi tiết
+                      Detail
                     </a>
                   </td>
                   <!-- Modal Update-->
@@ -72,7 +69,7 @@
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Đơn hàng của <span th:text="${category.user.fullName}"></span></h5>
+                          <h5 class="modal-title" id="exampleModalLabel">Order of <span th:text="${category.user.fullName}"></span></h5>
                           <button type="button" class="btn-close" data-bs-dismiss="modal"
                                   aria-label="Close"></button>
                         </div>
@@ -80,18 +77,18 @@
                           <form th:action="order-edit" method="post" enctype="multipart/form-data" >
                             <input type="hidden" name="id" th:value="${category.id}" class="form-control">
                           <div class="mb-5" th:if="${category.status != 3}">
-                            <label  class="col-form-label">Trạng thái đơn hàng:</label>
+                            <label  class="col-form-label">Order Status:</label>
                             <select class="form-control" name="status" required>
-                              <option value="" selected >-- Chọn trạng thái --</option>
-                              <option value="2" th:if="${category.status == 1}" >Đang giao hàng</option>
-                              <option value="3" th:if="${category.status == 2}"  >Đã giao hàng</option>
+                              <option value="" selected >-- Choose status --</option>
+                              <option value="2" th:if="${category.status == 1}" >Delivery in progress</option>
+                              <option value="3" th:if="${category.status == 2}"  >Delivered</option>
                             </select>
 
                           </div>
-                            <strong th:if="${category.status == 3}">Đơn hàng đã giao không thể thay đổi trạng thái !</strong>
+                            <strong th:if="${category.status == 3}">Orders delivered cannot be changed status !</strong>
                             <div class="modal-footer">
-                              <button type="button" style="width:100px" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                              <button type="submit" style="width:100px" class="btn btn-primary" th:if="${category.status != 3}">Cập nhập</button>
+                              <button type="button" style="width:100px" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              <button type="submit" style="width:100px" class="btn btn-primary" th:if="${category.status != 3}">Save</button>
                             </div>
                           </form>
                         </div>

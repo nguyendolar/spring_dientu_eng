@@ -252,6 +252,18 @@
     })
   </script>
 </div>
+<div th:if="${fail}" >
+  <script>
+    swal({
+      title: 'Old password not correct',
+      /* text: 'Redirecting...', */
+      icon: 'error',
+      timer: 3000,
+      buttons: true,
+      type: 'error'
+    })
+  </script>
+</div>
 <!-- thanh "danh muc sach" đã được ẩn bên trong + hotline + ho tro truc tuyen -->
 <section  class="duoinavbar">
   <div class="container text-white">
@@ -302,49 +314,53 @@ Category Product</span>
   <div class="container">
     <ol class="breadcrumb mb-0 p-0 bg-transparent">
       <li class="breadcrumb-item"><a href="/public/home">Home</a></li>
-      <li class="breadcrumb-item active"><a href="/public/user/order" >Order history</a></li>
+      <li class="breadcrumb-item"><a href="/public/user/profile" >Profile</a></li>
+
     </ol>
   </div>
 </section>
 <section class="content my-3 mb-5">
   <div class="container">
-    <table class="table" style="margin-bottom: 100px">
-      <thead class="thead-light">
-      <tr>
-        <th scope="col">
-          Code orders</th>
-        <th scope="col">
-          Order date</th>
-        <th scope="col">Total</th>
-        <th scope="col">Note</th>
-        <th scope="col">Status</th>
-        <th scope="col">Action</th>
-      </tr>
-      </thead>
-      <tbody>
-      <th:block th:each="order,index : ${list}">
-        <tr>
-          <td th:text="${order.id}"></td>
-          <td th:text="${order.orderDate}">Otto</td>
-          <td th:text="${#numbers.formatCurrency(order.amount)}"></td>
-          <td th:text="${order.description}" ></td>
-          <td th:if="${order.status == 0}">Đã hủy</td>
-          <td th:if="${order.status == 1}">Đang xử lý</td>
-          <td th:if="${order.status == 2}">Đang giao hàng</td>
-          <td th:if="${order.status == 3}">Đã giao hàng</td>
-          <td>
-            <a style="width: 100px" th:href="'/public/user/order/detail/'+ ${order.id}" class="btn btn-warning">
-              Detail
-            </a>
-            <a th:if="${order.status == 1}" style="width: 100px" th:href="'order/cancel/'+ ${order.id}" class="btn btn-danger">
-             Cancel
-            </a>
-          </td>
-        </tr>
-      </th:block>
+    <div class="row">
+      <div class="col-6">
+        <h3>Information</h3>
+        <form action="/public/user/updateProfile" method="post">
+        <div class="">
+          <label  class="col-form-label">
+            Fullname:</label>
+          <input type="text" name="fullName" th:value="${user.fullName}" required class="form-control" >
+        </div>
+        <div class="">
+          <label  class="col-form-label">
+            Email:</label>
+          <input type="email" name="email" th:value="${user.email}" required class="form-control" >
+        </div>
+        <div class="">
+          <label  class="col-form-label">
+            Phone Number:</label>
+          <input type="number" name="phoneNumber" th:value="${user.phoneNumber}" required class="form-control" >
+        </div>
+          <button type="submit" class="btn btn-warning mt-3">Save </button>
+        </form>
+      </div>
+      <div class="col-6">
+        <h3>Change Password</h3>
+        <form action="/public/user/changePassword" method="post">
+        <div class="">
+          <label  class="col-form-label">
+            Old password:</label>
+          <input type="password" name="password" required class="form-control" >
+        </div>
+        <div class="">
+          <label  class="col-form-label">
+            New password:</label>
+          <input type="password" name="newpassword" required class="form-control" >
+        </div>
+          <button type="submit" class="btn btn-warning mt-3">Save </button>
+        </form>
+      </div>
+    </div>
 
-      </tbody>
-    </table>
   </div>
   <!-- het container  -->
 </section>

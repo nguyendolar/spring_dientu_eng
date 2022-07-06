@@ -37,5 +37,6 @@ public class CommonConstants {
     public static final String CONFIRM_AWAIT = "confirm_await";
 
     public static final String SUCCESS = "success";
+    public static final String FAIL = "fail";
     public static final String VERIFY = "verify";
 }

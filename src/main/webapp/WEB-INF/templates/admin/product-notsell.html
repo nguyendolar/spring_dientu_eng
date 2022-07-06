@@ -16,7 +16,7 @@
   <div id="layoutSidenav_content">
     <main>
       <div class="container-fluid px-4">
-        <h1 class="mt-4">Top 10 Sản phẩm không bán chạy</h1>
+        <h1 class="mt-4">Top 10 Products that don't sell well</h1>
         <ol class="breadcrumb mb-4">
         </ol>
 
@@ -27,14 +27,14 @@
             <table id="datatablesSimple">
               <thead>
               <tr style="background-color: gray !important;">
-                <th>STT</th>
-                <th>Tên</th>
-                <th>Ảnh</th>
-                <th>Giá</th>
-                <th>Số lượng</th>
-                <th>Danh mục</th>
-                <th>Giảm giá</th>
-                <th>Mô tả</th>
+                <th>NO</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Category</th>
+                <th>Discount</th>
+                <th>Description</th>
               </tr>
               </thead>
               <tfoot>
@@ -52,7 +52,7 @@
                   <td th:text="${product.category.name}"></td>
                   <td th:text="${product.discount} + '%'"></td>
                   <td  ><a data-bs-toggle="modal"
-                           th:data-bs-target="'#exampleDes'+${product.id}" href="">Chi tiết</a></td>
+                           th:data-bs-target="'#exampleDes'+${product.id}" href="">Detail</a></td>
                 </tr>
                 <!-- Modal Des-->
                 <div class="modal fade" th:id="'exampleDes'+${product.id}" tabindex="-1"
@@ -60,7 +60,7 @@
                   <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Mô tả : <span th:text="${product.name}"></span></h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Description : <span th:text="${product.name}"></span></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                       </div>

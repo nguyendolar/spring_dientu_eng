@@ -16,44 +16,42 @@
   <div id="layoutSidenav_content">
     <main>
       <div class="container-fluid px-4">
-        <h1 class="mt-4">Sản phẩm</h1>
+        <h1 class="mt-4">Product</h1>
         <ol class="breadcrumb mb-4">
         </ol>
 
         <div class="card mb-4">
           <div class="card-header">
             <div th:if="${msg == '1'}" class="alert alert-success">
-              <strong>Thành công!</strong>
+              <strong>Successful!</strong>
             </div>
             <div th:if="${msg == '2'}" class="alert alert-danger">
-              <strong>Danh mục đã tồn tại !</strong>
+              <strong>Product already exists !</strong>
             </div>
             <button type="button" class="btn btn-success" style="width: 100px" data-bs-toggle="modal"
                     data-bs-target="#exampleModalAdd">
-              Thêm mới
+              Create
             </button>
           </div>
           <div class="card-body">
             <table id="datatablesSimple">
               <thead>
               <tr style="background-color: gray !important;">
-                <th>STT</th>
-                <th>Tên</th>
-                <th>Ảnh</th>
-                <th>Giá</th>
-                <th>Số lượng</th>
-                <th>Danh mục</th>
-                <th>Giảm giá</th>
-                <th>Mô tả</th>
-                <th>Hoạt động</th>
+                <th>NO</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Category</th>
+                <th>Discount</th>
+                <th>Description</th>
+                <th>Action</th>
 
               </tr>
               </thead>
               <tfoot>
               <tr>
-                <th>ID</th>
-                <th>Tên</th>
-                <th>Hoạt động</th>
+
               </tr>
               </tfoot>
               <tbody>
@@ -68,14 +66,14 @@
                   <td th:text="${product.category.name}"></td>
                   <td th:text="${product.discount} + '%'"></td>
                   <td  ><a data-bs-toggle="modal"
-                          th:data-bs-target="'#exampleDes'+${product.id}" href="">Chi tiết</a></td>
+                          th:data-bs-target="'#exampleDes'+${product.id}" href="">Detail</a></td>
                   <td>
                     <button style="width: 100px" type="button" class="btn btn-primary" data-bs-toggle="modal"
                             th:data-bs-target="'#exampleModal'+${product.id}">
-                      Sửa
+                      Update
                     </button>
                     <a style="width: 100px" th:href="'product/delete/'+ ${product.id}" class="btn btn-danger">
-                      Xóa
+                      Delete
                     </a>
                   </td>
                 </tr>
@@ -85,7 +83,7 @@
                   <div class="modal-dialog modal-xl">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Cập nhập</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Update</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                       </div>
@@ -94,32 +92,32 @@
                           <div class="row">
                             <div class="col-6">
                               <div class="">
-                                <label  class="col-form-label">Tên sản phẩm:</label>
+                                <label  class="col-form-label">Name product:</label>
                                 <input type="text" name="name" th:value="${product.name}" class="form-control" required>
                                 <input type="hidden" name="productId" th:value="${product.id}" class="form-control" required>
                               </div>
                               <div class="">
-                                <label  class="col-form-label">Giá:</label>
+                                <label  class="col-form-label">Price:</label>
                                 <input type="number" name="price" th:value="${product.price}" class="form-control" required>
                               </div>
                               <div class="">
-                                <label  class="col-form-label">Số lượng:</label>
+                                <label  class="col-form-label">Quantity:</label>
                                 <input type="number" name="quantity" th:value="${product.quantity}" class="form-control" required>
                               </div>
                             </div>
                             <div class="col-6">
                               <div class="">
-                                <label  class="col-form-label">Ảnh:</label><br>
+                                <label  class="col-form-label">Image:</label><br>
                                 <input type="file" name="file" class="form-control" >
                               </div>
                               <div class="">
-                                <label  class="col-form-label">Giảm giá (%):</label><br>
+                                <label  class="col-form-label">Discount (%):</label><br>
                                 <input type="number" min="1" max="100" name="discount" th:value="${product.discount}" class="form-control" required>
                               </div>
                               <div class="">
-                                <label  class="col-form-label">Danh mục:</label><br>
+                                <label  class="col-form-label">Category:</label><br>
                                 <select class="form-control" name="categoryId" required>
-                                  <option th:value="${product.category.id}" th:text="${product.category.name}">--Chọn danh mục--</option>
+                                  <option th:value="${product.category.id}" th:text="${product.category.name}">--Choose category--</option>
                                   <th:block th:each="category,index : ${categorys}">
                                     <option th:value="${category.id}" th:text="${category.name}"></option>
                                   </th:block>
@@ -129,13 +127,13 @@
                             </div>
                           </div>
                           <div class="col-12">
-                            <label  class="col-form-label">Mô tả:</label><br>
+                            <label  class="col-form-label">Description:</label><br>
                             <textarea name="description" th:id="'editor'+${product.id}" cols="30"
                                       rows="30" th:utext="${product.description}"></textarea>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" style="width:100px" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                            <button type="submit" style="width:100px" class="btn btn-primary">Cập nhập</button>
+                            <button type="button" style="width:100px" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" style="width:100px" class="btn btn-primary">Update</button>
                           </div>
                         </form>
                       </div>
@@ -149,7 +147,7 @@
                   <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Mô tả : <span th:text="${product.name}"></span></h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Description : <span th:text="${product.name}"></span></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                       </div>
@@ -167,7 +165,7 @@
                 <div class="modal-dialog modal-xl">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Thêm mới</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">Create</h5>
                       <button type="button" class="btn-close" data-bs-dismiss="modal"
                               aria-label="Close"></button>
                     </div>
@@ -176,31 +174,31 @@
                         <div class="row">
                           <div class="col-6">
                               <div class="">
-                                <label  class="col-form-label">Tên sản phẩm:</label>
+                                <label  class="col-form-label">Name product:</label>
                                 <input type="text" name="name" class="form-control" required>
                               </div>
                               <div class="">
-                                <label  class="col-form-label">Giá:</label>
+                                <label  class="col-form-label">Price:</label>
                                 <input type="number" name="price" class="form-control" required>
                               </div>
                               <div class="">
-                                <label  class="col-form-label">Số lượng:</label>
+                                <label  class="col-form-label">Quantiy:</label>
                                 <input type="number" name="quantity" class="form-control" required>
                               </div>
                             </div>
                             <div class="col-6">
                               <div class="">
-                                <label  class="col-form-label">Ảnh:</label><br>
+                                <label  class="col-form-label">Image:</label><br>
                                 <input type="file" name="file" class="form-control" required>
                               </div>
                               <div class="">
-                                <label  class="col-form-label">Giảm giá (%):</label><br>
+                                <label  class="col-form-label">Discount (%):</label><br>
                                 <input type="number" name="discount" class="form-control" min="1" max="100" required>
                               </div>
                               <div class="">
-                                <label  class="col-form-label">Danh mục:</label><br>
+                                <label  class="col-form-label">Category:</label><br>
                                 <select class="form-control" name="categoryId" required>
-                                  <option value="0">--Chọn danh mục--</option>
+                                  <option value="0">--Choose category--</option>
                                   <th:block th:each="category,index : ${categorys}">
                                     <option th:value="${category.id}" th:text="${category.name}"></option>
                                   </th:block>
@@ -210,13 +208,13 @@
                           </div>
                         </div>
                         <div class="col-12">
-                          <label  class="col-form-label">Mô tả:</label><br>
+                          <label  class="col-form-label">Description:</label><br>
                           <textarea name="description" id="editor" cols="30"
                                     rows="30"></textarea>
                         </div>
                         <div class="modal-footer">
-                          <button type="button" style="width:100px" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                          <button type="submit" style="width:100px" class="btn btn-primary">Thêm</button>
+                          <button type="button" style="width:100px" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="submit" style="width:100px" class="btn btn-primary">Create</button>
                         </div>
                       </form>
                     </div>
@@ -254,7 +252,7 @@
     <footer th:replace="admin/fragments :: footer" class="py-4 bg-light mt-auto">
       <div class="container-fluid px-4">
         <div class="d-flex align-items-center justify-content-between small">
-          <div class="text-muted">Copyright &copy; Your Website 2021</div>
+          <div class="text-muted">Copyright &copy; Your Website 2022</div>
           <div>
             <a href="#">Privacy Policy</a>
             &middot;
