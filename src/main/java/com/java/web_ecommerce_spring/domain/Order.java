@@ -36,6 +36,9 @@ public class Order {
     @Column(name = "status")
     private int status;
 
+    @Column(name = "is_payment")
+    private int isPayment;
+
     @OneToMany(mappedBy = "order")
     private List<OrderDetail> orderDetails;
 

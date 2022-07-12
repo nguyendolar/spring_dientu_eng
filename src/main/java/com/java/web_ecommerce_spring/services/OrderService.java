@@ -12,6 +12,7 @@ public interface OrderService {
     List<Order> findAll();
     Order findOrderById(int id);
     int update(int status, int id);
+    int updateIsPayment(int isPayment, int id);
     List<OrderDetail> listOd(int order_id);
     List<Order> getAmount(int month);
     Order save(Order order);

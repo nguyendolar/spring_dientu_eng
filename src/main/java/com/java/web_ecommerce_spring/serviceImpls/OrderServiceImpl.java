@@ -22,6 +22,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public int updateIsPayment(int isPayment, int id) {
+        return orderRepository.updateIsPayment(isPayment,id);
+    }
+
+    @Override
     public Order findOrderById(int id) {
         return orderRepository.findOrderById(id);
     }

@@ -23,6 +23,11 @@ public interface OrderRepository extends JpaRepository<Order,Integer> {
 
     @Modifying
     @Transactional
+    @Query(value = "Update orders SET  is_payment = ? WHERE id = ?",nativeQuery = true)
+    int updateIsPayment(int isPayment, int id);
+
+    @Modifying
+    @Transactional
     @Query(value = "SELECT * FROM order_detail WHERE order_id = ?",nativeQuery = true)
     List<OrderDetail> listOd(int order_id);
 

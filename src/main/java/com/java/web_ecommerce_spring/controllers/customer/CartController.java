@@ -173,6 +173,7 @@ public class CartController {
             order.setPhoneNumber(phoneNumber);
             order.setStatus(1);
             order.setUser(checkAuth);
+            order.setIsPayment(0);
             order.setOrderDate(java.time.LocalDate.now().toString());
             orderService.save(order);
 

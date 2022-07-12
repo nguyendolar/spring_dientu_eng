@@ -318,6 +318,7 @@ Category Product</span>
         <th scope="col">Total</th>
         <th scope="col">Note</th>
         <th scope="col">Status</th>
+        <th scope="col">Payment Status </th>
         <th scope="col">Action</th>
       </tr>
       </thead>
@@ -328,11 +329,16 @@ Category Product</span>
           <td th:text="${order.orderDate}">Otto</td>
           <td th:text="${#numbers.formatCurrency(order.amount)}"></td>
           <td th:text="${order.description}" ></td>
-          <td th:if="${order.status == 0}">Đã hủy</td>
-          <td th:if="${order.status == 1}">Đang xử lý</td>
-          <td th:if="${order.status == 2}">Đang giao hàng</td>
-          <td th:if="${order.status == 3}">Đã giao hàng</td>
+          <td th:if="${order.status == 0}">Cancelled</td>
+          <td th:if="${order.status == 1}">Processing</td>
+          <td th:if="${order.status == 2}">Delivery</td>
+          <td th:if="${order.status == 3}">Delivered</td>
+          <td th:if="${order.isPayment == 0}">UnPaid</td>
+          <td th:if="${order.isPayment == 1}">Paid</td>
           <td>
+            <a th:if="${(order.status == 1 && order.isPayment == 0)|| (order.status == 2 && order.isPayment == 0) }" style="width: 100px" th:href="'/payment/'+ ${order.id}" class="btn btn-success">
+              Payment
+            </a>
             <a style="width: 100px" th:href="'/public/user/order/detail/'+ ${order.id}" class="btn btn-warning">
               Detail
             </a>
