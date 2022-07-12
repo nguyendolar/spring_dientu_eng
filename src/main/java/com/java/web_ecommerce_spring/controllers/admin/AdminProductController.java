@@ -8,6 +8,7 @@ import com.java.web_ecommerce_spring.services.ProductService;
 import com.java.web_ecommerce_spring.utils.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -39,7 +40,8 @@ public class AdminProductController {
     @GetMapping(value = "/product")
     public ModelAndView index(Principal principal){
         ModelAndView mv = new ModelAndView("admin/product");
-        mv.addObject("products" ,productService.getAll());
+        Sort sort = Sort.by("id").descending();
+        mv.addObject("products" ,productService.getTopProduct(sort));
         mv.addObject("categorys" ,categoryService.listCon());
         String userName = principal.getName();
         mv.addObject("userName",userName);

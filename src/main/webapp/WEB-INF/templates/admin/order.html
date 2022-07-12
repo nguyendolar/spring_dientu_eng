@@ -34,6 +34,7 @@
                 <th>Total Money</th>
                 <th>Date order</th>
                 <th>Status</th>
+                <th>Payment Status </th>
                 <th>Action</th>
               </tr>
               </thead>
@@ -54,12 +55,14 @@
                   <td th:if="${category.status == 1}">Processing</td>
                   <td th:if="${category.status == 2}">Delivery in progress</td>
                   <td th:if="${category.status == 3}">Delivered</td>
+                  <td th:if="${category.isPayment == 0}">UnPaid</td>
+                  <td th:if="${category.isPayment == 1}">Paid</td>
                   <td>
-                    <button th:if="${category.status != 0}" style="width: 100px" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    <button th:if="${category.status != 0}" style="width: 80px" type="button" class="btn btn-primary" data-bs-toggle="modal"
                             th:data-bs-target="'#exampleModal'+${category.id}">
                       Update
                     </button>
-                    <a style="width: 100px" th:href="'order/detail/'+ ${category.id}" class="btn btn-warning">
+                    <a style="width: 80px" th:href="'order/detail/'+ ${category.id}" class="btn btn-warning">
                       Detail
                     </a>
                   </td>

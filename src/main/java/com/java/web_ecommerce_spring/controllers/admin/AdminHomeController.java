@@ -34,7 +34,7 @@ public class AdminHomeController {
         List<Order> listB = orderService.findAll();
         float sum = 0;
         for (Order order : listB) {
-	if(order.getStatus() != 0){
+	if(order.getIsPayment() == 1){
             sum = sum + order.getAmount();
 	}
         }

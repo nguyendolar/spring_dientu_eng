@@ -49,6 +49,8 @@ public class AdminOrderController {
         int id = Integer.parseInt(request.getParameter("id")) ;
         if(status == 3){
             Order obj = orderService.findOrderById(id);
+            obj.setIsPayment(1);
+            orderService.save(obj);
             List<OrderDetail> list = orderDetailService.findOrderDetailsByOrder(obj);
             for(OrderDetail orderDetail : list){
                 productService.updatepro((int)orderDetail.getDiscount(),orderDetail.getProduct().getId());

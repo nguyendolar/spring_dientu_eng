@@ -288,8 +288,8 @@
               <h4 class="ten" th:text="${product.name}"></h4>
               <div class="rate">
                 <strong style="color: #FF0000;margin-right: 5px">
-<!--                  <span th:if="${ave != null}" th:text="${ave}"></span>-->
-                  <span>5</span>/5</strong>
+                  <span th:if="${ave != null}" th:text="${#numbers.formatDecimal(ave,1,2)}"></span>
+                  /5</strong>
                 <i class="fa fa-star active"></i>
               </div>
               <hr>
@@ -355,10 +355,9 @@
               <a class="nav-item nav-link active text-uppercase" id="nav-gioithieu-tab"
                  data-toggle="tab" href="#nav-gioithieu" role="tab" aria-controls="nav-gioithieu"
                  aria-selected="true">Product introduction</a>
-<!--              <a class="nav-item nav-link text-uppercase" id="nav-danhgia-tab" data-toggle="tab"-->
-<!--                 href="#nav-danhgia" role="tab" aria-controls="nav-danhgia"-->
-<!--                 aria-selected="false">Đánh-->
-<!--                giá của độc giả</a>-->
+             <a class="nav-item nav-link text-uppercase" id="nav-danhgia-tab" data-toggle="tab"
+                href="#nav-danhgia" role="tab" aria-controls="nav-danhgia"
+                aria-selected="false">Comments and reviews</a>
             </div>
           </nav>
           <!-- nội dung của từng tab  -->
@@ -373,7 +372,7 @@
                   <p class="tieude">Comments List</p>
                   <th:block th:each="cmt,index : ${listC}">
                   <div style="margin-bottom: 5px;width : 500px;background-color: #DDDDDD;padding: 5px;">
-                    <strong style="width : 30px;display: inline" th:text="${cmt.user.fullName}"></strong> : <span th:text="${cmt.text}"></span>
+                    <strong style="width : 30px;display: inline" th:text="${cmt.user.fullName}"></strong> : ( <span th:text="${#numbers.formatInteger(cmt.rate,1)} + ' star'"></span> ) <span th:text="${cmt.text}"></span>
                   </div>
                     <th:block/>
                 </div>
@@ -383,12 +382,12 @@
                         <input type="hidden" th:value="${product.id}" name="id">
                         <div class="form-label-group">
                           <select class="form-control" name="rate" required>
-                            <option value="" selected>Chọn số sao</option>
-                            <option value="1" >1 sao</option>
-                            <option value="2" >2 sao</option>
-                            <option value="3" >3 sao</option>
-                            <option value="4" >4 sao</option>
-                            <option value="5" >5 sao</option>
+                            <option value="" selected>Choose number of stars</option>
+                            <option value="1" >1 star</option>
+                            <option value="2" >2 star</option>
+                            <option value="3" >3 star</option>
+                            <option value="4" >4 star</option>
+                            <option value="5" >5 star</option>
                           </select>
                         </div>
                         <div class="form-label-group">
