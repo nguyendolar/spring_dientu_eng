@@ -8,9 +8,11 @@ import com.java.web_ecommerce_spring.utils.EncrytedPasswordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
@@ -46,6 +48,28 @@ public class AdminUserController {
         mv.addObject("list",list);
         String userName = principal.getName();
         mv.addObject("userName",userName);
+        return mv;
+    }
+
+    @GetMapping("/customer/block/{id}")
+    public ModelAndView block(@PathVariable int id, RedirectAttributes rd)
+    {
+        ModelAndView mv = new ModelAndView("redirect:/admin/customer");
+        User user = userService.findUserById(id);
+        user.setEnable(0);
+        userService.save(user);
+        mv.addObject("msg","1");
+        return mv;
+    }
+
+    @GetMapping("/customer/open/{id}")
+    public ModelAndView open(@PathVariable int id, RedirectAttributes rd)
+    {
+        ModelAndView mv = new ModelAndView("redirect:/admin/customer");
+        User user = userService.findUserById(id);
+        user.setEnable(1);
+        userService.save(user);
+        mv.addObject("msg","1");
         return mv;
     }
 

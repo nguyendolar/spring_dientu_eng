@@ -91,13 +91,16 @@ public class AuthenticationController {
         if (!Objects.nonNull(user)){
             return "false_user";
         } else {
-            if (user.getEnable() == 0){
-                return  "false_verify";
-            } else {
-                HttpSession session = request.getSession();
-                session.setAttribute(CommonConstants.SESSION_USER, user);
-                return  "true";
-            }
+//            if (user.getEnable() == 0){
+//                return  "false_verify";
+//            } else {
+//                HttpSession session = request.getSession();
+//                session.setAttribute(CommonConstants.SESSION_USER, user);
+//                return  "true";
+//            }
+            HttpSession session = request.getSession();
+            session.setAttribute(CommonConstants.SESSION_USER, user);
+            return  "true";
         }
     }
 

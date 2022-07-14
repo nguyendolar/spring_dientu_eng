@@ -20,6 +20,9 @@
                 <h1 class="mt-4">List of customers</h1>
                 <div class="card mb-4">
                     <div class="card-header">
+                        <div th:if="${msg == '1'}" class="alert alert-success">
+                            <strong>Successful!!</strong>
+                        </div>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
@@ -29,7 +32,7 @@
                                 <th>Fullname</th>
                                 <th>Email</th>
                                 <th>PhoneNumber</th>
-
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tfoot>
@@ -45,6 +48,14 @@
                                     <td th:text="${category.fullName}"></td>
                                     <td th:text="${category.email}"></td>
                                     <td th:text="${category.phoneNumber}"></td>
+                                    <td>
+                                        <a th:if="${category.enable == 1}" style="width: 150px" th:href="'customer/block/'+ ${category.id}" class="btn btn-danger">
+                                            Block comment
+                                        </a>
+                                        <a th:if="${category.enable == 0}" style="width: 150px" th:href="'customer/open/'+ ${category.id}" class="btn btn-warning">
+                                            Open comment
+                                        </a>
+                                    </td>
                                 </tr>
                             </th:block>
                             </tbody>

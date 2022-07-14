@@ -17,28 +17,29 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">Danh sách đánh giá</h1>
+                <h1 class="mt-4">Feedback</h1>
                 <div class="card mb-4">
                     <div class="card-header">
+                        <div th:if="${msg == '1'}" class="alert alert-success">
+                            <strong>Successful!!</strong>
+                        </div>
                     </div>
                     <div class="card-body">
                         <table id="datatablesSimple">
                             <thead>
                             <tr style="background-color: gray !important;">
-                                <th>STT</th>
-                                <th>Khách hàng</th>
-                                <th>Số sao</th>
-                                <th>Đánh giá</th>
-                                <th>Sản phẩm</th>
-                                <th>Ảnh</th>
+                                <th>NO</th>
+                                <th>Customer</th>
+                                <th>Number star</th>
+                                <th>Comment</th>
+                                <th>Product</th>
+                                <th>Image</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tfoot>
                             <tr>
-                                <th>Full Name</th>
-                                <th>Email</th>
-                                <th>Phone Number</th>
-                                <th>UserName</th>
+
                             </tr>
                             </tfoot>
                             <tbody>
@@ -47,10 +48,15 @@
                                 <tr>
                                     <td th:text="${index.index +1}"></td>
                                     <td th:text="${category.user.fullName}"></td>
-                                    <td th:text="${category.rate}"></td>
+                                    <td th:text="${#numbers.formatInteger(category.rate,1)}"></td>
                                     <td th:text="${category.text}"></td>
                                     <td th:text="${category.product.name}"></td>
-                                    <td ><img style="width: 150px; height: 100px" th:src="'/resources/uploads/' + ${category.product.image}"></td>
+                                    <td ><img style="width: 150px; height: 180px" th:src="'/resources/uploads/' + ${category.product.image}"></td>
+                                    <td>
+                                        <a style="width: 100px" th:href="'comment/delete/'+ ${category.id}" class="btn btn-danger">
+                                            Delete
+                                        </a>
+                                    </td>
                                 </tr>
                             </th:block>
                             </tbody>

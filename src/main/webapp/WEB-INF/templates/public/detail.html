@@ -377,6 +377,7 @@
                     <th:block/>
                 </div>
                 <div class="col-md-4" th:if="${session.user}">
+                  <div th:if="${session.user.enable == 1}">
                       <p class="tieude">Your review</p>
                       <form action="/public/product/comment" method="post">
                         <input type="hidden" th:value="${product.id}" name="id">
@@ -396,6 +397,7 @@
                         <button class="btn btn-lg text-white mt-3" type="submit"
                                 style="background: #F5A623">Submit a review</button>
                       </form>
+                    </div>
                 </div>
               </div>
             </div>

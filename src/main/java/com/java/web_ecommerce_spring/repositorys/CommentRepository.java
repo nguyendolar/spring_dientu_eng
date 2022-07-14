@@ -19,4 +19,6 @@ public interface CommentRepository extends PagingAndSortingRepository<Comment, I
 
     Comment save(Comment comment);
 
+    void deleteById(int id);
+
 }
